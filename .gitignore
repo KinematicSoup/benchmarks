@@ -10,6 +10,9 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
+/[Bb]in/
+/[Ww]eb/
+/KinematicSoup/
 *.log
 
 # By default unity supports Blender asset imports, *.blend1 blender files do not need to be commited to version control.
@@ -97,3 +100,9 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# Photon licence prevents us from distributing Photon Fusion
+/[Aa]ssets/Photon/
+
+# Exclude Reactor config
+/[Aa]ssets/ReactorScripts/Resources/

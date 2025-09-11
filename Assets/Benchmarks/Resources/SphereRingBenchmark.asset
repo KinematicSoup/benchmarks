@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7932e54928a0684793934dddcb7aec5, type: 3}
+  m_Name: SphereRingBenchmark
+  m_EditorClassIdentifier: 
+  __ksAssetId: 9
+  NumAsteroids: 250
+  ScaleBounds: 1
+  Bounds: 50
+  MinScale: 0.25
+  MaxScale: 1
+  MaxAngularVelocity: 45
+  MinSpeed: 1
+  MaxSpeed: 4
+  Seed: 2323

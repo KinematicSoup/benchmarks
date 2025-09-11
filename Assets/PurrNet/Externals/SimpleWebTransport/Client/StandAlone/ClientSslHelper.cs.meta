@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 45c5e15bb50596247abd37156c0d37df
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 297320
+  packageName: 'PurrNet: Multiplayer Networking'
+  packageVersion: v1.14.0
+  assetPath: Assets/PurrNet/Externals/SimpleWebTransport/Client/StandAlone/ClientSslHelper.cs
+  uploadId: 780127

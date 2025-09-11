@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ebbaa80a729046e4abe8cf82c82bc5f7
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 297320
+  packageName: 'PurrNet: Multiplayer Networking'
+  packageVersion: v1.14.0
+  assetPath: Assets/PurrNet/Externals/SimpleWebTransport/SimpleWebTransport.asmdef
+  uploadId: 780127

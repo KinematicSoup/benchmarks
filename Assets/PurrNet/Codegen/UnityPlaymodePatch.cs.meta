@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 280802c1a2b544bca14bb76ecd9d96bd
+timeCreated: 1752737598
+AssetOrigin:
+  serializedVersion: 1
+  productId: 297320
+  packageName: 'PurrNet: Multiplayer Networking'
+  packageVersion: v1.14.0
+  assetPath: Assets/PurrNet/Codegen/UnityPlaymodePatch.cs
+  uploadId: 780127

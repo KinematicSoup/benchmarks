@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: fda9b969c5a769845845e4cc73d40f36
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 297320
+  packageName: 'PurrNet: Multiplayer Networking'
+  packageVersion: v1.14.0
+  assetPath: Assets/PurrNet/Externals/SimpleWebTransport/Common/ReceiveLoop.cs
+  uploadId: 780127

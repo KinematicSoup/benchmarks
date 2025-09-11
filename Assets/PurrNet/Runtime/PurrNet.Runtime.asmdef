@@ -1,0 +1,52 @@
+{
+    "name": "PurrNet.Runtime",
+    "rootNamespace": "PurrNet",
+    "references": [
+        "GUID:ebbaa80a729046e4abe8cf82c82bc5f7",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:1beb10fd218482c4c919c79f867341a0",
+        "GUID:00687f3485071f442bbe5c9dc860fe98"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "System.Collections.Immutable.dll",
+        "Newtonsoft.Json.dll",
+        "K4os.Compression.LZ4.dll",
+        "Ruffles.dll",
+        "System.Runtime.CompilerServices.Unsafe.dll",
+        ""
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.cysharp.unitask",
+            "expression": "",
+            "define": "UNITASK_PURRNET_SUPPORT"
+        },
+        {
+            "name": "com.unity.modules.physics",
+            "expression": "",
+            "define": "UNITY_PHYSICS_3D"
+        },
+        {
+            "name": "com.unity.modules.physics2d",
+            "expression": "",
+            "define": "UNITY_PHYSICS_2D"
+        },
+        {
+            "name": "com.unity.modules.unitywebrequest",
+            "expression": "",
+            "define": "UNITY_WEB"
+        },
+        {
+            "name": "com.unity.modules.animation",
+            "expression": "",
+            "define": "UNITY_ANIMATION"
+        }
+    ],
+    "noEngineReferences": false
+}

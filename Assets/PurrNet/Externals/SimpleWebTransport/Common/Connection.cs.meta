@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: ad4da9ce67b9b6e458defe895b1d71e3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 297320
+  packageName: 'PurrNet: Multiplayer Networking'
+  packageVersion: v1.14.0
+  assetPath: Assets/PurrNet/Externals/SimpleWebTransport/Common/Connection.cs
+  uploadId: 780127

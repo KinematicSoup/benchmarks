@@ -1,0 +1,16 @@
+{
+    "name": "KSScripts-Server",
+    "rootNamespace": "",
+    "references": ["KSScripts-Common"],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": ["KSCommon.dll", "KSReactor.dll"],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": true
+}

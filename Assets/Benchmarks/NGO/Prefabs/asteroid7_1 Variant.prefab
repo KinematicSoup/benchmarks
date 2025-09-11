@@ -1,0 +1,177 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &165453600179720064
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 100006, guid: dc4aca7eed6f95b4b904828b4e10bf65, type: 3}
+      propertyPath: m_Name
+      value: asteroid7_1 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: dc4aca7eed6f95b4b904828b4e10bf65, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -60.78947
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: dc4aca7eed6f95b4b904828b4e10bf65, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.00966
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: dc4aca7eed6f95b4b904828b4e10bf65, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 60.35723
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: dc4aca7eed6f95b4b904828b4e10bf65, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: dc4aca7eed6f95b4b904828b4e10bf65, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: dc4aca7eed6f95b4b904828b4e10bf65, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: dc4aca7eed6f95b4b904828b4e10bf65, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: dc4aca7eed6f95b4b904828b4e10bf65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: dc4aca7eed6f95b4b904828b4e10bf65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: dc4aca7eed6f95b4b904828b4e10bf65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100006, guid: dc4aca7eed6f95b4b904828b4e10bf65, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6600603118803042684}
+    - targetCorrespondingSourceObject: {fileID: 100006, guid: dc4aca7eed6f95b4b904828b4e10bf65, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4864008210795326298}
+    - targetCorrespondingSourceObject: {fileID: 100006, guid: dc4aca7eed6f95b4b904828b4e10bf65, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9112082660581555445}
+    - targetCorrespondingSourceObject: {fileID: 100006, guid: dc4aca7eed6f95b4b904828b4e10bf65, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 335813643799089789}
+  m_SourcePrefab: {fileID: 100100000, guid: dc4aca7eed6f95b4b904828b4e10bf65, type: 3}
+--- !u!1 &165453600179620134 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100006, guid: dc4aca7eed6f95b4b904828b4e10bf65, type: 3}
+  m_PrefabInstance: {fileID: 165453600179720064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6600603118803042684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165453600179620134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 66562634
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
+--- !u!114 &4864008210795326298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165453600179620134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  NetworkTransformExpanded: 0
+  AutoOwnerAuthorityTickOffset: 1
+  PositionInterpolationType: 0
+  RotationInterpolationType: 0
+  ScaleInterpolationType: 0
+  PositionLerpSmoothing: 1
+  PositionMaxInterpolationTime: 0.1
+  RotationLerpSmoothing: 1
+  RotationMaxInterpolationTime: 0.1
+  ScaleLerpSmoothing: 1
+  ScaleMaxInterpolationTime: 0.1
+  AuthorityMode: 0
+  TickSyncChildren: 0
+  UseUnreliableDeltas: 0
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 0
+  SyncScaleY: 0
+  SyncScaleZ: 0
+  PositionThreshold: 0.01
+  RotAngleThreshold: 0.001
+  ScaleThreshold: 0.001
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 1
+  InLocalSpace: 0
+  SwitchTransformSpaceWhenParented: 0
+  Interpolate: 1
+  SlerpPosition: 0
+--- !u!114 &9112082660581555445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165453600179620134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  NetworkRigidbodyBaseExpanded: 0
+  UseRigidBodyForMotion: 0
+  AutoUpdateKinematicState: 0
+  AutoSetKinematicOnDespawn: 0
+--- !u!114 &335813643799089789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165453600179620134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 360b3a87598936343b97c3dfdda5cf00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1

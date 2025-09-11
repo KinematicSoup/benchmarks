@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6264339478148647187
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 100006, guid: e0d80828505733847af7299bc105527c, type: 3}
+      propertyPath: m_Name
+      value: asteroid8_1 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: e0d80828505733847af7299bc105527c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -58.50667
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: e0d80828505733847af7299bc105527c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.11867
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: e0d80828505733847af7299bc105527c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 46.85197
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: e0d80828505733847af7299bc105527c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: e0d80828505733847af7299bc105527c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: e0d80828505733847af7299bc105527c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: e0d80828505733847af7299bc105527c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: e0d80828505733847af7299bc105527c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: e0d80828505733847af7299bc105527c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: e0d80828505733847af7299bc105527c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3914612657196356318, guid: e0d80828505733847af7299bc105527c, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100006, guid: e0d80828505733847af7299bc105527c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3885448021128145998}
+    - targetCorrespondingSourceObject: {fileID: 100006, guid: e0d80828505733847af7299bc105527c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5594961245762851304}
+  m_SourcePrefab: {fileID: 100100000, guid: e0d80828505733847af7299bc105527c, type: 3}
+--- !u!1 &6264339478148550581 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100006, guid: e0d80828505733847af7299bc105527c, type: 3}
+  m_PrefabInstance: {fileID: 6264339478148647187}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3885448021128145998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6264339478148550581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SortKey: 2256629649
+  ObjectInterest: 1
+  Flags: 262145
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 5594961245762851304}
+  ForceRemoteRenderTimeframe: 0
+--- !u!114 &5594961245762851304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6264339478148550581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateAuthorityChangeErrorCorrectionDelta: 0
+  SyncScale: 1
+  SyncParent: 0
+  _autoAOIOverride: 1
+  DisableSharedModeInterpolation: 0
