@@ -1,6 +1,6 @@
-# Reactor Bandwidth Benchmark Project
-This repo contains a Unity project with a benchmark for the comparing bandwidth usage of our Reactor Multiplayer Engine against some
-alternative networking solutions for Unity.
+# Unity Network Transform Benchmark Project
+This repo contains a Unity project with a benchmark for the comparing bandwidth usage for syncing transform data of our
+Reactor Multiplayer Engine against some alternative networking solutions for Unity.
 
 ### Frameworks
 - Reactor
@@ -51,7 +51,7 @@ The Reactor server does not run in Unity, and therefore there are two implemenat
 The Reactor server implemenation is located in 'Assets/ReactorScripts/Server/sSphereRingBenchmark.cs' and the Unity implementation is in
 'Assets/Scripts/SphereRingBenchmark.cs'. Any changes to one implementation should also be made in the other implementation.
 
-## Asteroid Benchmark
+## Asteroid Network Transform Benchmark
 
 The benchmark has 250 asteroids with dynamic rigid bodies travelling in random directions with random angular velocities within a sphere. The
 asteroids have a random target speed they will accelerate or decelerate to maintain. The asteroids change direction when they collide or when
