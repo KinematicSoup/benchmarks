@@ -38,7 +38,7 @@ namespace KS.Benchmark.Reactor.Client
         private void Update()
         {
             m_frames++;
-            m_timer += Time.Delta;
+            m_timer += Time.UnscaledDelta;
             if (m_timer < UpdateInterval)
             {
                 return;
@@ -60,7 +60,7 @@ namespace KS.Benchmark.Reactor.Client
             HUD.Get().Goodput.text = bandwidth < 0f ? "-" : (bandwidth.ToString("0.00") + " kB/s");
             HUD.Get().Bandwidth.text = bandwidth < 0f ? "-" : ((bandwidth + GetOverhead()).ToString("0") + " kB/s");
             HUD.Get().Syncs.text = syncRate < 0f ? "-" : syncRate.ToString("0.0") + " syncs/s";
-            HUD.Get().ResizeWidth(HUD.Get().Stats);
+            HUD.Get().ResizeWidth(HUD.Get().Stats, 330f);
         }
 
         private float GetOverhead()

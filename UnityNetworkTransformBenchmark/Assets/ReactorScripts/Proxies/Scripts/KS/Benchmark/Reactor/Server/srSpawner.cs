@@ -18,11 +18,13 @@ namespace KSProxies.Scripts.KS.Benchmark.Reactor.Server
         [Tooltip("If greater than zero, a number between 1 and this will be appended to the prefab path when spawning entities.")]
         public Int32 PrefabCount;
         public KSProxies.Scripts.KS.Benchmark.Reactor.BaseBenchmarkData Benchmark;
+        public Int32 MaxObjects;
         public srSpawner() : base() 
         {
             Prefab = "asteroid";
             PrefabCount = 8;
             Benchmark = null;
+            MaxObjects = 1000;
         }
 #endif
     }

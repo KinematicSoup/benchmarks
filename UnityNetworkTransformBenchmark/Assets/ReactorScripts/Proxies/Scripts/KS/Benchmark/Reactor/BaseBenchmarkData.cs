@@ -12,9 +12,9 @@ namespace KSProxies.Scripts.KS.Benchmark.Reactor
     
     public abstract class BaseBenchmarkData : ksProxyScriptAsset
     {
-#if UNITY_EDITOR
+
+        public Int32 ObjectCount;
         
-        
-#endif
+
     }
 }

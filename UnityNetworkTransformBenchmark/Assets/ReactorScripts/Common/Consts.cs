@@ -6,4 +6,10 @@ namespace KS.Benchmark
     {
         public const uint LOCAL_SERVER = 0;
     }
+
+    public class RPC
+    {
+        public const uint FREEZE = 0;
+        public const uint OBJECT_COUNT = 1;
+    }
 }

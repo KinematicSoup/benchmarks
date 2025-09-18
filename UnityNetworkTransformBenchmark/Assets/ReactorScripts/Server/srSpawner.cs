@@ -23,6 +23,12 @@ namespace KS.Benchmark.Reactor.Server
         public int PrefabCount = 8;
         [ksEditable]
         public BaseBenchmarkData Benchmark;
+        [ksEditable]
+        public int MaxObjects = 1000;
+
+        private bool m_freezeMotion = false;
+        private int m_defaultObjectCount;
+        private sBaseBenchmark m_benchmark;
 
         public override void Initialize()
         {
@@ -34,7 +40,9 @@ namespace KS.Benchmark.Reactor.Server
             // no connected players.
             Room.OnUpdate[-1] += Update;
 
-            sBaseBenchmark.Get(Benchmark).Spawn(Room, Benchmark, Prefab, PrefabCount);
+            m_defaultObjectCount = Benchmark.ObjectCount;
+            m_benchmark = sBaseBenchmark.Get(Benchmark);
+            m_benchmark.Spawn(Room, Benchmark, Prefab, PrefabCount);
         }
 
         public override void Detached()
@@ -44,9 +52,31 @@ namespace KS.Benchmark.Reactor.Server
 
         private void Update()
         {
+            if (Room.ConnectedPlayerCount == 0)
+            {
+                m_freezeMotion = false;
+                if (Benchmark.ObjectCount != m_defaultObjectCount)
+                {
+                    SetObjectCount((uint)m_defaultObjectCount);
+                }
+            }
+
             // Skip further script updates and don't update physics if there are no connected players.
-            Room.SkipFrameUpdates = Room.ConnectedPlayerCount == 0;
+            Room.SkipFrameUpdates = Room.ConnectedPlayerCount == 0 || m_freezeMotion;
             Time.TimeScale = Room.SkipFrameUpdates ? 0f : 1f;
+        }
+
+        [ksRPC(RPC.FREEZE)]
+        private void Freeze(bool freeze)
+        {
+            m_freezeMotion = freeze;
+        }
+
+        [ksRPC(RPC.OBJECT_COUNT)]
+        private void SetObjectCount(uint count)
+        {
+            Benchmark.ObjectCount = Math.Min((int)count, MaxObjects);
+            m_benchmark.Spawn(Room, Benchmark, Prefab, PrefabCount);
         }
     }
 }

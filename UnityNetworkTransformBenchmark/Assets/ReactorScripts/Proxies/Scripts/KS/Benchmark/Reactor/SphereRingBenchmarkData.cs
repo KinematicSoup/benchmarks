@@ -13,9 +13,10 @@ namespace KSProxies.Scripts.KS.Benchmark.Reactor
     public class SphereRingBenchmarkData : KSProxies.Scripts.KS.Benchmark.Reactor.BaseBenchmarkData
     {
 
-        public Int32 NumAsteroids;
         [Tooltip("True to scale the bounds to keep the density the same as it would be with 1000 asteroids.")]
         public Boolean ScaleBounds;
+        [Tooltip("Minimum scaled bounds with ScaleBounds is checked.")]
+        public Single MinScaledBounds;
         public Single Bounds;
         public Single MinScale;
         public Single MaxScale;
@@ -26,8 +27,8 @@ namespace KSProxies.Scripts.KS.Benchmark.Reactor
         public Int32 Seed;
         public SphereRingBenchmarkData() : base() 
         {
-            NumAsteroids = 1000;
             ScaleBounds = true;
+            MinScaledBounds = 10f;
             Bounds = 50f;
             MinScale = 0.25f;
             MaxScale = 1f;
@@ -35,6 +36,7 @@ namespace KSProxies.Scripts.KS.Benchmark.Reactor
             MinSpeed = 1f;
             MaxSpeed = 4f;
             Seed = 0;
+            ObjectCount = 1000;
         }
 
     }

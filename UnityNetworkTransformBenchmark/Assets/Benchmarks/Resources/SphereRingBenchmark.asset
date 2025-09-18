@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SphereRingBenchmark
   m_EditorClassIdentifier: 
   __ksAssetId: 9
-  NumAsteroids: 250
+  ObjectCount: 250
   ScaleBounds: 1
   Bounds: 50
   MinScale: 0.25

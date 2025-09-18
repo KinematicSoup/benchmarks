@@ -22,7 +22,7 @@ namespace JamesFrowen.SimpleWeb
             bool allowSSLErrors = false)
         {
 #if UNITY_WEBGL && !UNITY_EDITOR
-            return new WebSocketClientWebGl(maxMessageSize, maxMessagesPerTick);
+            return null;//new WebSocketClientWebGl(maxMessageSize, maxMessagesPerTick);
 #else
             return new WebSocketClientStandAlone(maxMessageSize, maxMessagesPerTick, tcpConfig, allowSSLErrors);
 #endif

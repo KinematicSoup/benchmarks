@@ -22,11 +22,29 @@ namespace KS.Benchmark.Reactor.Server
     {
         public override void Spawn(ksIServerRoom room, BaseBenchmarkData data, string prefab, int prefabCount)
         {
+            if (room.DynamicEntities.Count == data.ObjectCount)
+            {
+                return;
+            }
+
             SphereRingBenchmarkData d = (SphereRingBenchmarkData)data;
 
             // If ScaleBounds is true, scale the bounds to keep the density the same as it would be if there were 1000
             // asteroids.
-            float bounds = d.ScaleBounds ? d.Bounds * ksMath.Pow(d.NumAsteroids / 1000f, 1f / 3f) : d.Bounds;
+            float bounds = d.ScaleBounds ? 
+                Math.Max(d.MinScaledBounds, d.Bounds * ksMath.Pow(d.ObjectCount / 1000f, 1f / 3f)) :
+                d.Bounds;
+            sVelocityBoundsCheck.Bounds = bounds;
+
+            // If there are more dynamic entities than requested, destroy entities until we reach the object count.
+            if (room.DynamicEntities.Count >= data.ObjectCount)
+            {
+                for (int i = data.ObjectCount; i < room.DynamicEntities.Count; i++)
+                {
+                    room.DynamicEntities[i].Destroy();
+                }
+                return;
+            }
 
             ksSphere sphere = new ksSphere(2f);
             ksOverlapParams overlapParams = new ksOverlapParams();
@@ -35,7 +53,7 @@ namespace KS.Benchmark.Reactor.Server
             ksSpawnParams spawnParams = new ksSpawnParams();
 
             ksRandom rand = d.Seed == 0 ? new ksRandom() : new ksRandom(d.Seed);
-            for (int i = 0; i < d.NumAsteroids; i++)
+            for (int i = room.DynamicEntities.Count; i < d.ObjectCount; i++)
             {
                 spawnParams.EntityType = prefab;
                 if (prefabCount > 0)
@@ -74,7 +92,6 @@ namespace KS.Benchmark.Reactor.Server
                 // sphere bounds.
                 sVelocityBoundsCheck check = new sVelocityBoundsCheck();
                 check.TargetSpeed = speed;
-                check.Bounds = bounds;
                 entity.Scripts.Attach(check);
             }
         }

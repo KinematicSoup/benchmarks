@@ -9,8 +9,10 @@ namespace KS.Benchmark.Reactor
     /// Base class for benchmark data. It's a script asset so the bench mark data can be configured in one asset that
     /// can be loaded by the Reactor server and by Unity for testing Unity-based frameworks.
     /// </summary>
+    [ksSharedData]
     public abstract class BaseBenchmarkData : ksScriptAsset
     {
-        
+        [ksEditable]
+        public int ObjectCount = 1000;
     }
 }

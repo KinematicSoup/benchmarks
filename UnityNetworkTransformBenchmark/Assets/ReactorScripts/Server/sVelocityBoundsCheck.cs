@@ -17,8 +17,9 @@ namespace KS.Benchmark.Reactor.Server
         private const float ACCEL = 5f;
         private const float BOUNDS_ACCEL = 10f;
 
+        public static float Bounds;
+
         public float TargetSpeed;
-        public float Bounds;
         private ksRigidBody m_rigidBody;
 
         public override void Initialize()

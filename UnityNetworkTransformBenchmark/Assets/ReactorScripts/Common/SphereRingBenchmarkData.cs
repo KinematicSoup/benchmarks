@@ -9,14 +9,16 @@ namespace KS.Benchmark.Reactor
     [ksSharedData]
     public class SphereRingBenchmarkData : BaseBenchmarkData
     {
-        [ksEditable]
-        public int NumAsteroids = 1000;
         /// <summary>
         /// True to scale the bounds to keep the density the same as it would be with 1000 asteroids.
         /// </summary>
         [ksEditable]
         [ksUnityTag("[Tooltip(\"True to scale the bounds to keep the density the same as it would be with 1000 asteroids.\")]")]
         public bool ScaleBounds = true;
+        /// <summary>Minimum scaled bounds when <see cref="ScaleBounds"/> is true.</summary>
+        [ksEditable]
+        [ksUnityTag("[Tooltip(\"Minimum scaled bounds with ScaleBounds is checked.\")]")]
+        public float MinScaledBounds = 10f;
         [ksEditable]
         public float Bounds = 50f;
         [ksEditable]

@@ -28,10 +28,12 @@ namespace KS.Benchmark
 
             // If ScaleBounds is true, scale the bounds to keep the density the same as it would be if there were 1000
             // asteroids.
-            float bounds = d.ScaleBounds ? d.Bounds * ksMath.Pow(d.NumAsteroids / 1000f, 1f / 3f) : d.Bounds;
+            float bounds = d.ScaleBounds ?
+                Math.Max(d.MinScaledBounds, d.Bounds * ksMath.Pow(d.ObjectCount / 1000f, 1f / 3f)) :
+                d.Bounds;
 
             ksRandom rand = d.Seed == 0 ? new ksRandom() : new ksRandom(d.Seed);
-            for (int i = 0; i < d.NumAsteroids; i++)
+            for (int i = 0; i < d.ObjectCount; i++)
             {
                 Vector3 pos = rand.NextVector3() * bounds;
                 Quaternion rotation = rand.NextQuaternion();
