@@ -96,6 +96,12 @@ barely increases once you surpass 255 objects.
 - Sync Scale and Parent: false (initial scale still syncs)
 - PurrNet does not have precision or sensitivity settings. It appears to sync with high precision.
 
+The following modifications were made to PurrNet to fix build errors when PurrNet and Mirror are in the same project:
+- The asmdef at Assets/PurrNet/Externals/SimpleWebTransport/SimpleWebTransport.asmdef was renamed to PNSimpleWebTransport.
+- Assets/PurrNet/Externals/SimpleWebTransport/Client/WebGL folder was deleted. This means PurrNet won't in WebGL builds.
+- Changed SimpleWebClient.Create to return null in WebGL builds.
+
+
 #### FishNet
 
 - Version: 4.6.12R
@@ -108,6 +114,11 @@ barely increases once you surpass 255 objects.
 - Position Sensitivity: .01
 - Position and Rotation Packing: Packed (.01 precision for position, not sure about rotation)
 - Scale Packing: Unpacked (because we disable scale syncing)
+
+Some classes were renamed and their GUIDs were changed to fix build errors when FishNet and NGO are in the same project:
+- PostProcessAssemblyResolver -> FNPostProcessAssemblyResolver
+- PostProcessReflectionImporter -> FNPostProcessReflectionImporter
+- PostProcessReflectionImporterProvider -> FNPostProcessReflectionImporterProvider
 
 #### Mirror
 

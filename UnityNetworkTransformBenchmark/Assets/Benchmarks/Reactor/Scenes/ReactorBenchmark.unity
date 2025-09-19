@@ -3355,7 +3355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ConnectOnStart: 1
   ConnectProtocol: 2
-  ConnectMode: 0
+  ConnectMode: 2
   RemoteHost: localhost
   RemotePort: 8000
   SecureLocalWebSockets: 0
