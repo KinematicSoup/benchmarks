@@ -2,6 +2,16 @@
 This repo contains a Unity project with a benchmark for the comparing bandwidth usage for syncing transform data of our
 Reactor Multiplayer Engine against some alternative networking solutions for Unity.
 
+## Purpose
+
+This Benchmark is intended to compare network transform compression bandwidth between a selected number of frameworks. It implements
+a simulation of orbiting, interacting asteroids to as a means generate structured motion with a significant random element. The simulation
+updates each object's transform differently at different times, but allows for some commonality where groups of objects move similarly relative
+to each other, similar to how objects in a game would move. Interactions between the objects generate additional random motion.
+
+This benchmark includes copies of frameworks where the framework licensing allows it. PurrNet and Fishnet required naming modification to coexist
+with other frameworks. Those modifications are detailed below.
+
 ### Frameworks
 - Reactor
 - PurrNet
@@ -161,4 +171,5 @@ NGO         ~185 kB/s
 
 These results were obtained from Wireshark by running each benchmark locally and capturing network traffic for at least 2 minutes and averaging
 the bandwidth for those 2 minutes. Each test was run twice and the average of the two tests was rounded to the nearest kB/s. The Reactor test
+
 was done using a local server with compression enabled. Testing online may have slightly higher protocol overhead.
