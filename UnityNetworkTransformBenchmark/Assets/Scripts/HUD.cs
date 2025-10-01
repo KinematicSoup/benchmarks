@@ -28,8 +28,6 @@ public class HUD : MonoBehaviour
     public Button OverlayCloseButton;
     public Button OverlayOpenButton;
 
-    public GameObject LocalServerWarning;
-
     public GameObject ViewingObjects;
     public GameObject EditingObjects;
     public Toggle MovementToggle;

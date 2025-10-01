@@ -21,8 +21,6 @@ namespace KS.Benchmark.Reactor.Client
         // Called after all other scripts/entities are attached/spawned.
         public override void Initialize()
         {
-            HUD.Get().LocalServerWarning.SetActive(Properties[Props.LOCAL_SERVER]);
-
             m_timer = 0f;
             m_lastServerFrame = Time.Frame;
             UpdateValues(-1f, -1f);

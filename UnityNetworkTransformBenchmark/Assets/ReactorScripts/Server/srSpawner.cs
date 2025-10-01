@@ -32,10 +32,6 @@ namespace KS.Benchmark.Reactor.Server
 
         public override void Initialize()
         {
-#if REACTOR_LOCAL_SERVER
-            Properties[Props.LOCAL_SERVER] = true;
-#endif
-
             // Register an Update handler at time -1 (before physics) so we can stop physics from updating if there are
             // no connected players.
             Room.OnUpdate[-1] += Update;
