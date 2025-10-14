@@ -30,22 +30,12 @@ Use Window's Resource Monitor or a packet capture tool such a [Wireshark](https:
 are configured to run on port 7777 when running locally.
 
 #### Reactor
-Compression is diabled in the Reactor local server. To test with compression, you'll need to create an account and setup a Reactor
-subscription at https://console.kinematicsoup.com. You can see the benchmark at https://demo.kinematicsoup.com/benchmark-asteroids/index.html
-without a subscription.
-
 - Open the Reactor benchmark scene from 'Assets/Benchmarks/Reactor/Scenes/ReactorBenchmark'.
-- Open the Reactor Publishing window **'Reactor>Publishing'**.
-- Sign in to your account.
-- Give you image a name and version and click **'Publish'**.
-- Open the Reactor Servers window **'Reactor->Servers'**.
-- Choose a location for your server from the **'Location'** drop down.
-- Click **'Launch Server'**.
-- Select the 'SphereRingBenchmarkRoom' game object and find the *ksConnect* script. Make sure 'Connect Mode' is set to 'Online'.
+- Build configs **CTRL+F2**.
+- Select the 'SphereRingBenchmarkRoom' game object and find the *ksRoomType* script. Click **Start Local Server**.
+- Find the *ksConnect* script. Make sure 'Connect Mode' is set to 'Local'.
 - Enter playmode. You should connect to the server. Some stats will be displayed in the top left, including the goodput (the amount of data received
-excluding protocol overhead) and a bandwidth estimate. The sync rate should stay near 30 syncs/s. The host address and port will be displayed in the
-bottom left, which you can use to filter the data you capture from your packet capture tool to verify the bandwidth.
-- Stop the server when you are done by clicking the 3-dots icon next to your server in the **'Servers'** window and clicking 'Stop'.
+excluding protocol overhead) and a bandwidth estimate. The sync rate should stay near 30 syncs/s.
 
 #### Photon Fusion
 You have to import the Photon Fusion 2 package on your own as their terms of service prevent us from distributing it, and you have to set up an
@@ -170,6 +160,4 @@ NGO         ~185 kB/s
 ```
 
 These results were obtained from Wireshark by running each benchmark locally and capturing network traffic for at least 2 minutes and averaging
-the bandwidth for those 2 minutes. Each test was run twice and the average of the two tests was rounded to the nearest kB/s. The Reactor test
-
-was done using a local server with compression enabled. Testing online may have slightly higher protocol overhead.
+the bandwidth for those 2 minutes. Each test was run twice and the average of the two tests was rounded to the nearest kB/s.
