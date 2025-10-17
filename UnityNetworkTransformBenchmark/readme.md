@@ -10,7 +10,8 @@ updates each object's transform differently at different times, but allows for s
 to each other, similar to how objects in a game would move. Interactions between the objects generate additional random motion.
 
 This benchmark includes copies of frameworks where the framework licensing allows it. PurrNet and Fishnet required naming modification to coexist
-with other frameworks. Those modifications are detailed below.
+with other frameworks. Those modifications are detailed below where the settings for each framework is detailed. None of the modifications should 
+affect performance.
 
 ### Frameworks
 - Reactor
@@ -161,3 +162,4 @@ NGO         ~185 kB/s
 
 These results were obtained from Wireshark by running each benchmark locally and capturing network traffic for at least 2 minutes and averaging
 the bandwidth for those 2 minutes. Each test was run twice and the average of the two tests was rounded to the nearest kB/s.
+
