@@ -2,4 +2,4 @@
 
 This repository is intended to contain testing and benchmarks for KinematicSoup's Reactor Multiplayer Engine project.
 
-See each subfolder for benchmark specific readme and licensing.
+See each subfolder for benchmark specific readme and any additional licensing.
