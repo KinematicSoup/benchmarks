@@ -73,7 +73,7 @@ This project is not affiliated with, endorsed by, or sponsored by:
 - Exit Games GmbH
 - FirstGearGames
 - vis2k et al.
-- [PurrNet Author Name]
+- BobsiUnity and BlenMiner
 
 References to these frameworks are for identification and benchmarking purposes only.
 
@@ -81,7 +81,7 @@ References to these frameworks are for identification and benchmarking purposes 
 
 For licensing or asset-use inquiries, contact:
 KinematicSoup Technologies Inc.
-[Company Address or Website]
-[legal@kinematicsoup.com]
+www.kinematicsoup.com
+info@kinematicsoup.com
 
 End of Composite License and Attribution Notice
