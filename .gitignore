@@ -106,3 +106,6 @@ InitTestScene*.unity*
 
 # Exclude Reactor config
 /[Aa]ssets/ReactorScripts/Resources/
+
+# Exclude Project Settings to exclude scripting defines
+/[Pp]rojectSettings/ProjectSettings.asset
