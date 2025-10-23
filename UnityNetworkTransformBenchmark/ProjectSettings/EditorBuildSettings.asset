@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Benchmarks/NGO/Scenes/NGOBenchmark.unity
     guid: a450b08241e9aec4caaec66ac42d7aa8
-  - enabled: 0
+  - enabled: 1
     path: Assets/Benchmarks/Mirror/Scenes/MirrorBenchmark.unity
     guid: 55b881d7795da5749b743cd141977ed4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Benchmarks/Reactor/Scenes/ReactorBenchmark.unity
     guid: 624ae69342a0c664991813b964af054c
   - enabled: 0
