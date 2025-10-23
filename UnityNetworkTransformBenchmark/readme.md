@@ -48,8 +48,8 @@ Sometimes the Photon Fusion client fails to connect silently. If this happens, c
 You can find benchmark data assets in 'Assets/Benchmarks/Resources' and edit their parameters to change things like the number of objects or
 their speeds. There is currently only one bencmark data asset.
 
-The Reactor server does not run in Unity, and therefore there are two implemenations of the benchmark--one for the Reactor server and one for Unity.
-The Reactor server implemenation is located in 'Assets/ReactorScripts/Server/sSphereRingBenchmark.cs' and the Unity implementation is in
+The Reactor server does not run in Unity, and therefore there are two implementations of the benchmark--one for the Reactor server and one for Unity.
+The Reactor server implementation is located in 'Assets/ReactorScripts/Server/sSphereRingBenchmark.cs' and the Unity implementation is in
 'Assets/Scripts/SphereRingBenchmark.cs'. Any changes to one implementation should also be made in the other implementation.
 
 ## Asteroid Network Transform Benchmark
@@ -162,4 +162,5 @@ NGO         ~185 kB/s
 
 These results were obtained from Wireshark by running each benchmark locally and capturing network traffic for at least 2 minutes and averaging
 the bandwidth for those 2 minutes. Each test was run twice and the average of the two tests was rounded to the nearest kB/s.
+
 
