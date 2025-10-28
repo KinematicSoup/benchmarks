@@ -2,6 +2,8 @@
 This repo contains a Unity project with a benchmark for the comparing bandwidth usage for syncing transform data of our
 Reactor Multiplayer Engine against some alternative networking solutions for Unity.
 
+A web build of the Reactor benchmark is here https://demo.kinematicsoup.com/benchmark-asteroids/index.html
+
 ## Purpose
 
 This Benchmark is intended to compare network transform compression bandwidth between a selected number of frameworks. It implements
@@ -162,5 +164,6 @@ NGO         ~185 kB/s
 
 These results were obtained from Wireshark by running each benchmark locally and capturing network traffic for at least 2 minutes and averaging
 the bandwidth for those 2 minutes. Each test was run twice and the average of the two tests was rounded to the nearest kB/s.
+
 
 
