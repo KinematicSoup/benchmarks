@@ -156,7 +156,7 @@ Some classes were renamed and their GUIDs were changed to fix build errors when 
 ### Results
 
 ```
-Reactor     ~15* kB/s, ~10kB/s goodput
+Reactor     ~15* kB/s, ~10 kB/s goodput
 PurrNet     ~100 kB/s, ~95 kB/s goodput
 FishNet     ~103 kB/s, ~98 kB/s goodput
 Photon      ~112 kB/s. ~107 kB/s goodput
@@ -166,8 +166,10 @@ NGO         ~185 kB/s, ~185 kB/s goodput
 
 These results were obtained from Wireshark by running each benchmark locally and capturing network traffic for at least 2 minutes and averaging
 the bandwidth for those 2 minutes. Each test was run twice and the average of the two tests was rounded to the nearest kB/s.
+Goodput numbers are estimates for all non-Reactor frameworks.
 
 * TCP value, UDP implementation always emits packets at 60hz which increases bandwidth to 20 kB/s due to overhead. The extra packets contain no frame data.
+
 
 
 
