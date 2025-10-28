@@ -27,7 +27,9 @@ affect performance.
 Each framework has a folder under the Benchmarks folder, and each of those folders has a Scenes folder containing the benchmark scene for that
 framework. Run that scene using multiplayer playmode or do a build with that scene and start a server and a client to run the benchmark. The
 frames per second is displayed in the bottom left corner. Be sure to monitor this value to make sure it does not drop below the target sync rate
-(defaults to 30 syncs per second). If the frame rate is too low, for the best performance, do a build and keep the server window focused.
+(defaults to 30 syncs per second). If the frame rate is too low, for the best performance, do a build and keep the server window focused. You can also
+try updating the process priority for the server to "very high" or "realtime" to maintain the minimum required framerate. If the framerate of the
+server drops below 30, its sync rate will drop accordingly and alter the bandwidth measurement.
 
 Use Window's Resource Monitor or a packet capture tool such a [Wireshark](https://www.wireshark.org/) to view the bandwidth usage. All Frameworks
 are configured to run on port 7777 when running locally.
@@ -54,7 +56,7 @@ The Reactor server does not run in Unity, and therefore there are two implementa
 The Reactor server implementation is located in 'Assets/ReactorScripts/Server/sSphereRingBenchmark.cs' and the Unity implementation is in
 'Assets/Scripts/SphereRingBenchmark.cs'. Any changes to one implementation should also be made in the other implementation.
 
-## Asteroid Network Transform Benchmark
+## About the Asteroid Network Transform Benchmark
 
 The benchmark has 250 asteroids with dynamic rigid bodies travelling in random directions with random angular velocities within a sphere. The
 asteroids have a random target speed they will accelerate or decelerate to maintain. The asteroids change direction when they collide or when
@@ -65,7 +67,7 @@ configured, position precision was set to .01 and rotation precision to .001.
 
 250 objects was chosen because Photon Fusion will not sync more than 255 objects in a single update. This can be seen if you set the
 **'Tools>Fusion>Network Project Config>Replication Features'** to 'None', as it will not sync more than 255 objects. Also Fusion's bandwidth
-barely increases once you surpass 255 objects.
+barely increases once you surpass 255 objects and the simulation starts to experience sync issues.
 
 #### Reactor
 
@@ -154,16 +156,18 @@ Some classes were renamed and their GUIDs were changed to fix build errors when 
 ### Results
 
 ```
-Reactor     ~15 kB/s
-PurrNet     ~100 kB/s
-FishNet     ~103 kB/s
-Photon      ~112 kB/s
-Mirror      ~122 kB/s
-NGO         ~185 kB/s
+Reactor     ~15* kB/s, ~10kB/s goodput
+PurrNet     ~100 kB/s, ~95 kB/s goodput
+FishNet     ~103 kB/s, ~98 kB/s goodput
+Photon      ~112 kB/s. ~107 kB/s goodput
+Mirror      ~122 kB/s, ~117 kB/s goodput
+NGO         ~185 kB/s, ~185 kB/s goodput
 ```
 
 These results were obtained from Wireshark by running each benchmark locally and capturing network traffic for at least 2 minutes and averaging
 the bandwidth for those 2 minutes. Each test was run twice and the average of the two tests was rounded to the nearest kB/s.
+
+* TCP value, UDP implementation always emits packets at 60hz which increases bandwidth to 20 kB/s due to overhead. The extra packets contain no frame data.
 
 
 
