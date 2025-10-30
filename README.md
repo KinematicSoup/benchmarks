@@ -8,5 +8,7 @@ A live build can be accessed here that uses WSS https://demo.kinematicsoup.com/b
 
 KinematicSoup is the creator of the Reactor Multiplayer Engine and Scene Fusion.
 
+Talk to us on discord: https://discord.gg/vWeTvPB
+
 Learn more at https://www.kinematicsoup.com
 
