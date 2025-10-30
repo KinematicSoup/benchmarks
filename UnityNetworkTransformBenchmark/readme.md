@@ -170,6 +170,13 @@ Goodput numbers are estimates for all non-Reactor frameworks.
 
 * TCP value, UDP implementation always emits packets at 60hz which increases bandwidth to 20 kB/s due to overhead. The extra packets contain no frame data.
 
+## Additional Information
+
+Talk to us on discord: https://discord.gg/vWeTvPB
+
+Learn more at https://www.kinematicsoup.com
+
+
 
 
 
