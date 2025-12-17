@@ -4443,7 +4443,6 @@ MonoBehaviour:
   Overlay: {fileID: 1770649176}
   OverlayCloseButton: {fileID: 364713090}
   OverlayOpenButton: {fileID: 1883134983}
-  LocalServerWarning: {fileID: 0}
   ViewingObjects: {fileID: 545507274}
   EditingObjects: {fileID: 313205425}
   MovementToggle: {fileID: 671482776}

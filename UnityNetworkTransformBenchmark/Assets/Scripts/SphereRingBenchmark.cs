@@ -52,15 +52,16 @@ namespace KS.Benchmark
                 }
 
                 GameObject go;
+                Vector3 scaleVector = new Vector3(scale, scale, scale);
                 if (spawnHandler == null)
                 {
                     go = GameObject.Instantiate(prefabs[rand.Next(prefabs.Length)], pos, rotation);
+                    go.transform.localScale = scaleVector;
                 }
                 else
                 {
-                    go = spawnHandler(prefabs[rand.Next(prefabs.Length)], pos, rotation);
+                    go = spawnHandler(rand.Next(prefabs.Length), pos, rotation, scaleVector);
                 }
-                go.transform.localScale = new Vector3(scale, scale, scale);
 
                 Rigidbody rb = go.GetComponent<Rigidbody>();
                 rb.angularVelocity = rand.NextVector3() * d.MaxAngularVelocity * ksMath.FDEGREES_TO_RADIANS;

@@ -31,8 +31,12 @@ namespace KS.Benchmark.Photon
             if (runner.IsServer)
             {
                 Physics.simulationMode = SimulationMode.FixedUpdate;
-                BaseBenchmark.Get(Benchmark).Spawn(Benchmark, Prefabs, null, (GameObject go, Vector3 pos, Quaternion rot) =>
-                    runner.Spawn(go, pos, rot).gameObject);
+                BaseBenchmark.Get(Benchmark).Spawn(Benchmark, Prefabs, null, (int prefabIndex, Vector3 pos, Quaternion rot, Vector3 scale) =>
+                {
+                    GameObject go = runner.Spawn(Prefabs[prefabIndex], pos, rot).gameObject;
+                    go.transform.localScale = scale;
+                    return go;
+                });
             }
         }
 #endif

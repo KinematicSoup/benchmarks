@@ -15,7 +15,7 @@ namespace KS.Benchmark
     /// </summary>
     public abstract class BaseBenchmark
     {
-        public delegate GameObject SpawnHandler(GameObject prefab, Vector3 pos, Quaternion rotation);
+        public delegate GameObject SpawnHandler(int prefabIndex, Vector3 pos, Quaternion rotation, Vector3 scale);
 
         private static Dictionary<Type, Type> m_typeMap = new Dictionary<Type, Type>();
         private static string LOG_CHANNEL = typeof(BaseBenchmark).FullName;
