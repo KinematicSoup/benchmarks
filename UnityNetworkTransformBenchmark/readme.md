@@ -161,12 +161,12 @@ PurrNet     ~100 kB/s, ~95 kB/s goodput
 FishNet     ~103 kB/s, ~98 kB/s goodput
 Photon      ~112 kB/s. ~107 kB/s goodput
 Mirror      ~122 kB/s, ~117 kB/s goodput
-NGO         ~185 kB/s, ~185 kB/s goodput
+NGO         ~185 kB/s, ~180 kB/s goodput
 ```
 
 These results were obtained from Wireshark by running each benchmark locally and capturing network traffic for at least 2 minutes and averaging
 the bandwidth for those 2 minutes. Each test was run twice and the average of the two tests was rounded to the nearest kB/s.
-Goodput numbers are estimates for all non-Reactor frameworks.
+**Goodput numbers are estimates for all non-Reactor frameworks**.
 
 * TCP value, UDP implementation always emits packets at 60hz which increases bandwidth to 20 kB/s due to overhead. The extra packets contain no frame data.
 
@@ -175,6 +175,7 @@ Goodput numbers are estimates for all non-Reactor frameworks.
 Talk to us on discord: https://discord.gg/vWeTvPB
 
 Learn more at https://www.kinematicsoup.com
+
 
 
 
