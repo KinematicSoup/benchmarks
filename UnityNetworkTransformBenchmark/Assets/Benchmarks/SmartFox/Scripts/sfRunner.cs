@@ -100,7 +100,6 @@ namespace KS.Benchmark.SmartFox2X
             m_smartFox.AddEventListener(SFSEvent.ROOM_ADD, HandleRoomAdd);
             m_smartFox.AddEventListener(SFSEvent.ROOM_JOIN, HandleJoinRoom);
             m_smartFox.AddEventListener(SFSEvent.ROOM_JOIN_ERROR, HandleJoinRoomError);
-            
         }
 
         private void OnDestroy()

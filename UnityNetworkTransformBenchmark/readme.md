@@ -1,4 +1,5 @@
 # Unity Network Transform Benchmark Project
+
 This repo contains a Unity project with a benchmark for the comparing bandwidth usage for syncing transform data of our
 Reactor Multiplayer Engine against some alternative networking solutions for Unity.
 
@@ -14,14 +15,17 @@ with other frameworks. Those modifications are detailed below where the settings
 affect performance.
 
 ### Frameworks
+
 - Reactor
 - PurrNet
 - FishNet
 - Photon Fusion 2
 - Mirror
+- SFS2X (SmartFoxServer 2X)
 - NGO (Netcode for GameObjects)
 
 ### Running a Benchmark
+
 Each framework has a folder under the Benchmarks folder, and each of those folders has a Scenes folder containing the benchmark scene for that
 framework. Run that scene using multiplayer playmode or do a build with that scene and start a server and a client to run the benchmark. The
 frames per second is displayed in the bottom left corner. Be sure to monitor this value to make sure it does not drop below the target sync rate
@@ -31,6 +35,7 @@ Use Window's Resource Monitor or a packet capture tool such a [Wireshark](https:
 are configured to run on port 7777 when running locally.
 
 #### Reactor
+
 - Open the Reactor benchmark scene from 'Assets/Benchmarks/Reactor/Scenes/ReactorBenchmark'.
 - Build configs **CTRL+F2**.
 - Select the 'SphereRingBenchmarkRoom' game object and find the *ksRoomType* script. Click **Start Local Server**.
@@ -39,12 +44,32 @@ are configured to run on port 7777 when running locally.
 excluding protocol overhead) and a bandwidth estimate. The sync rate should stay near 30 syncs/s.
 
 #### Photon Fusion
+
 You have to import the Photon Fusion 2 package on your own as their terms of service prevent us from distributing it, and you have to set up an
 account and get a Fusion App id.
 
 Sometimes the Photon Fusion client fails to connect silently. If this happens, click **'Shutdown'** and try to connect again.
 
+#### SmartFoxServer 2X
+
+You have to install SmartFoxServer 2X. You can download if from their [website](https://www.smartfoxserver.com/download/sfs2x#p=installer). It will
+ask you if you want to install it as a service. If you are just using it to test this benchmark, it's recommended you do not. If you do not install
+it as a service, you will have to manually start the SFS2X server by running '<SFS2X install location>/SFS2X/sfs2x-standalone.exe' before you can
+connect and run the benchmark. 
+
+The Unity SFS2X benchmark connects to the SFS2X server on 2 different ports--one for the client that acts as a server and runs the simulation and
+sends transform updates, and one for the client who receives transform updates. By default the client port is 9933 and the server port is 9934.
+This is so when we monitor the bandwidth, we can exclude the traffix from SFS2X to the Unity "server" by only monitoring the bandwidth on the
+client port. By default SFS2X only accepts connections on port 9933, so we have to configure it to also accept connections on port 9934.
+
+Once the SFS2X server is running, open 'http://localhost:8080/admin/' in a browser and login to the admin panel with username and password
+'sfsadmin'. Navigate to the 'Server Configurator' tab. Click the '+' button below the 'Socket addresses' table. Set the 'Port' to 9934. Leave the
+'IP address' as '127.0.0.1' and the 'Protocol' as 'TCP'. Click the 'Add+' button.  Click the 'Submit' button at the bottom of the page, then click
+the button with the circular arrow refresh icon to restart the server so your changes will be applied. This configuration is saved so you should
+only need to do this once before you can run the benchmark.
+
 ### Modifying the Benchmark
+
 You can find benchmark data assets in 'Assets/Benchmarks/Resources' and edit their parameters to change things like the number of objects or
 their speeds. There is currently only one bencmark data asset.
 
@@ -136,6 +161,21 @@ Some classes were renamed and their GUIDs were changed to fix build errors when 
 - Position and Scale Precision: .01
 - Sync Interval: 0
 
+#### SmartFoxServer 2X
+
+SFS2X is a very low level framework compared to the other frameworks and leaves a lot of the implementation details for how and when to send and
+apply updates to the developer. 
+
+For this benchmark, we send updates for all objects 30 times per second. Each object is represented as two SFSObject room variables--one containing
+the data that never changes (prefab, scale), and one containing the updating data (position, rotation). All SFSObject field names are a single
+character to minimize bandwidth. We assign the synced game objects an incrementing integer id that starts at 1. The room variable names are a
+single character ('s' for immutable spawn data, 'u' for updating data) prefixed to the game object's integer id.
+
+Position and scale data is quantized to integers with .01 accuracy, and rotations are quantized with .001 accuracy and use smallest-3 encoding.
+
+- Server Version: 2.19.0
+- C# API Version: 1.8.5
+
 #### NGO
 
 - Version: 2.4.4
@@ -157,6 +197,7 @@ PurrNet     ~100 kB/s
 FishNet     ~103 kB/s
 Photon      ~112 kB/s
 Mirror      ~122 kB/s
+SFS2X       ~160 kB/s
 NGO         ~185 kB/s
 ```
 
