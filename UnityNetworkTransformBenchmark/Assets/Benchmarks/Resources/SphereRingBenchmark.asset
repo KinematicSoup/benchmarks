@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SphereRingBenchmark
   m_EditorClassIdentifier: 
   __ksAssetId: 9
-  ObjectCount: 100
+  ObjectCount: 250
   ScaleBounds: 1
   MinScaledBounds: 10
   Bounds: 50

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sfs2X.Entities.Data;
 using Sfs2X.Entities.Variables;
-using Sfs2X.Requests;
 using Sfs2X.Core;
-using KS.Reactor;
-using UnityEngine.UIElements;
 
 namespace KS.Benchmark.SmartFox2X
 {
+    /// <summary>
+    /// Applies server transform data stored in SFSObjects room variables to game objects when connected to SFS as a
+    /// client.
+    /// </summary>
     public class sfObjectReceiveManager : MonoBehaviour
     {
         private sfRunner m_runner;
@@ -54,12 +55,12 @@ namespace KS.Benchmark.SmartFox2X
             for (int i = 0; i < changedNames.Count; i++)
             {
                 string name = changedNames[i];
-                if (!name.StartsWith("u"))
+                if (!name.StartsWith(sfIdPrefix.UPDATE))
                 {
                     continue;
                 }
                 int id;
-                if (!int.TryParse(name.Substring(1), out id))
+                if (!int.TryParse(name.Substring(sfIdPrefix.UPDATE.Length), out id))
                 {
                     continue;
                 }
@@ -67,12 +68,14 @@ namespace KS.Benchmark.SmartFox2X
                 ISFSObject obj;
                 if (!m_objects.TryGetValue(id, out netId))
                 {
-                    obj = GetSFObject("s" + id);
+                    // We didn't find an object with this id, so spawn a new one. We get the immutable spawn data for
+                    // this object from a different SFSObject than the one with the update data.
+                    obj = GetSFObject(sfIdPrefix.SPAWN + id);
                     if (obj == null)
                     {
                         continue;
                     }
-                    int prefabIndex = obj.GetByte("p");
+                    int prefabIndex = obj.GetByte(sfVars.PREFAB);
                     GameObject go = Instantiate(m_runner.Prefabs[prefabIndex]);
                     netId = go.AddComponent<sfNetId>();
                     netId.Id = id;
@@ -81,15 +84,15 @@ namespace KS.Benchmark.SmartFox2X
                     Vector3 scale = new Vector3();
                     if (m_runner.ScalePrecision == 0f)
                     {
-                        scale.x = obj.GetFloat("sx");
-                        scale.y = obj.GetFloat("sy");
-                        scale.z = obj.GetFloat("sz");
+                        scale.x = obj.GetFloat(sfVars.SCALE_X);
+                        scale.y = obj.GetFloat(sfVars.SCALE_Y);
+                        scale.z = obj.GetFloat(sfVars.SCALE_Z);
                     }
                     else
                     {
-                        scale.x = obj.GetInt("sx") * m_runner.ScalePrecision;
-                        scale.y = obj.GetInt("sy") * m_runner.ScalePrecision;
-                        scale.z = obj.GetInt("sz") * m_runner.ScalePrecision;
+                        scale.x = obj.GetInt(sfVars.SCALE_X) * m_runner.ScalePrecision;
+                        scale.y = obj.GetInt(sfVars.SCALE_Y) * m_runner.ScalePrecision;
+                        scale.z = obj.GetInt(sfVars.SCALE_Z) * m_runner.ScalePrecision;
                     }
                     go.transform.localScale = scale;
                 }
@@ -102,34 +105,34 @@ namespace KS.Benchmark.SmartFox2X
                 Vector3 position = new Vector3();
                 if (m_runner.PositionPrecision == 0f)
                 {
-                    position.x = obj.GetFloat("x");
-                    position.y = obj.GetFloat("y");
-                    position.z = obj.GetFloat("z");
+                    position.x = obj.GetFloat(sfVars.POS_X);
+                    position.y = obj.GetFloat(sfVars.POS_Y);
+                    position.z = obj.GetFloat(sfVars.POS_Z);
                 }
                 else
                 {
-                    position.x = obj.GetInt("x") * m_runner.PositionPrecision;
-                    position.y = obj.GetInt("y") * m_runner.PositionPrecision;
-                    position.z = obj.GetInt("z") * m_runner.PositionPrecision;
+                    position.x = obj.GetInt(sfVars.POS_X) * m_runner.PositionPrecision;
+                    position.y = obj.GetInt(sfVars.POS_Y) * m_runner.PositionPrecision;
+                    position.z = obj.GetInt(sfVars.POS_Z) * m_runner.PositionPrecision;
                 }
                 netId.transform.localPosition = position;
 
                 if (m_runner.RotationPrecision == 0f)
                 {
                     Quaternion rot = new Quaternion();
-                    rot.x = obj.GetFloat("q0");
-                    rot.y = obj.GetFloat("q1");
-                    rot.z = obj.GetFloat("q2");
-                    rot.w = obj.GetFloat("q4");
+                    rot.x = obj.GetFloat(sfVars.Q0);
+                    rot.y = obj.GetFloat(sfVars.Q1);
+                    rot.z = obj.GetFloat(sfVars.Q2);
+                    rot.w = obj.GetFloat(sfVars.Q3);
                     netId.transform.localRotation = rot;
                 }
                 else
                 {
                     int[] qInt = new int[4];
-                    qInt[0] = obj.GetInt("q0");
-                    qInt[1] = obj.GetInt("q1");
-                    qInt[2] = obj.GetInt("q2");
-                    qInt[3] = obj.GetByte("q3");
+                    qInt[0] = obj.GetInt(sfVars.Q0);
+                    qInt[1] = obj.GetInt(sfVars.Q1);
+                    qInt[2] = obj.GetInt(sfVars.Q2);
+                    qInt[3] = obj.GetByte(sfVars.Q3);
                     netId.transform.localRotation = DecodeQuaternion(qInt);
                 }
             }

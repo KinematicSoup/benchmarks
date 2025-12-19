@@ -4,13 +4,25 @@ using UnityEngine;
 using Sfs2X.Entities.Data;
 using Sfs2X.Entities.Variables;
 using Sfs2X.Requests;
-using Sfs2X.Core;
 using KS.Reactor;
+using KS.Reactor.Client.Unity;
+using KS.Benchmark.Reactor;
 
 namespace KS.Benchmark.SmartFox2X
 {
+    /// <summary>
+    /// Spawns game objects for an SFS benchmark when connected to SFS as a server, and manages the sending of spawn
+    /// data and transform updates. The data for each game object is synced as 2 SFSObject room variables - one
+    /// containing the data that never changes (prefab, scale) and the other containing the data that changes
+    /// (position, rotation). Changing scale after spawning is not supported. Transform data is sent as quantized ints
+    /// and the quaternion uses smallest-3 encoding, unless the transform precision values configured on
+    /// <see cref="sfRunner"/> are set to 0, in which cause it sends the full float values.
+    /// </summary>
     public class sfObjectSendManager : MonoBehaviour
     {
+        public ksScriptAssetReference<BaseBenchmarkData> Benchmark;
+        public float SendRate = 30f;
+
         private sfRunner m_runner;
         private List<sfNetId> m_objects = new List<sfNetId>();
         private List<RoomVariable> m_updates = new List<RoomVariable>();
@@ -22,7 +34,7 @@ namespace KS.Benchmark.SmartFox2X
             m_runner = GetComponent<sfRunner>();
             m_runner.OnRoomConnect += HandleConnect;
             m_runner.OnRoomDisconnect += HandleDisconnect;
-            enabled = false;    
+            enabled = false;
         }
 
         private void HandleConnect()
@@ -30,7 +42,7 @@ namespace KS.Benchmark.SmartFox2X
             enabled = m_runner.IsServer;
             if (enabled)
             {
-                BaseBenchmark.Get(m_runner.Benchmark).Spawn(m_runner.Benchmark, m_runner.Prefabs, null, Spawn);
+                BaseBenchmark.Get(Benchmark).Spawn(Benchmark, m_runner.Prefabs, null, Spawn);
             }
         }
 
@@ -52,14 +64,14 @@ namespace KS.Benchmark.SmartFox2X
 
         public void Update()
         {
-            if (m_runner.SendRate > 0)
+            if (SendRate > 0)
             {
                 m_timer -= Time.deltaTime;
                 if (m_timer > 0)
                 {
                     return;
                 }
-                m_timer += 1f / m_runner.SendRate;
+                m_timer += 1f / SendRate;
             }
             SendUpdates();
         }
@@ -73,21 +85,21 @@ namespace KS.Benchmark.SmartFox2X
             m_objects.Add(netId);
 
             SFSObject obj = SFSObject.NewInstance();
-            obj.PutByte("p", (byte)prefabIndex);
+            obj.PutByte(sfVars.PREFAB, (byte)prefabIndex);
             if (m_runner.InvScalePrecision == 0f)
             {
-                obj.PutFloat("sx", scale.x);
-                obj.PutFloat("sy", scale.y);
-                obj.PutFloat("sz", scale.z);
+                obj.PutFloat(sfVars.SCALE_X, scale.x);
+                obj.PutFloat(sfVars.SCALE_Y, scale.y);
+                obj.PutFloat(sfVars.SCALE_Z, scale.z);
             }
             else
             {
-                obj.PutInt("sx", Quantize(scale.x, m_runner.InvScalePrecision));
-                obj.PutInt("sy", Quantize(scale.y, m_runner.InvScalePrecision));
-                obj.PutInt("sz", Quantize(scale.z, m_runner.InvScalePrecision));
+                obj.PutInt(sfVars.SCALE_X, Quantize(scale.x, m_runner.InvScalePrecision));
+                obj.PutInt(sfVars.SCALE_Y, Quantize(scale.y, m_runner.InvScalePrecision));
+                obj.PutInt(sfVars.SCALE_Z, Quantize(scale.z, m_runner.InvScalePrecision));
             }
 
-            m_updates.Add(new SFSRoomVariable("s" + netId.Id, obj));
+            m_updates.Add(new SFSRoomVariable(sfIdPrefix.SPAWN + netId.Id, obj));
             return go;
         }
 
@@ -96,7 +108,7 @@ namespace KS.Benchmark.SmartFox2X
             for (int i = 0; i < m_objects.Count; i++)
             {
                 sfNetId netId = m_objects[i];
-                m_updates.Add(new SFSRoomVariable("u" + netId.Id, GetUpdate(netId.transform)));
+                m_updates.Add(new SFSRoomVariable(sfIdPrefix.UPDATE + netId.Id, GetUpdate(netId.transform)));
             }
             m_runner.SmartFox.Send(new SetRoomVariablesRequest(m_updates));
             m_updates.Clear();
@@ -107,31 +119,31 @@ namespace KS.Benchmark.SmartFox2X
             SFSObject obj = SFSObject.NewInstance(); 
             if (m_runner.InvPositionPrecision == 0f)
             {
-                obj.PutFloat("x", t.localPosition.x);
-                obj.PutFloat("y", t.localPosition.y);
-                obj.PutFloat("z", t.localPosition.z);
+                obj.PutFloat(sfVars.POS_X, t.localPosition.x);
+                obj.PutFloat(sfVars.POS_Y, t.localPosition.y);
+                obj.PutFloat(sfVars.POS_Z, t.localPosition.z);
             }
             else
             {
-                obj.PutInt("x", Quantize(t.localPosition.x, m_runner.InvPositionPrecision));
-                obj.PutInt("y", Quantize(t.localPosition.y, m_runner.InvPositionPrecision));
-                obj.PutInt("z", Quantize(t.localPosition.z, m_runner.InvPositionPrecision));
+                obj.PutInt(sfVars.POS_X, Quantize(t.localPosition.x, m_runner.InvPositionPrecision));
+                obj.PutInt(sfVars.POS_Y, Quantize(t.localPosition.y, m_runner.InvPositionPrecision));
+                obj.PutInt(sfVars.POS_Z, Quantize(t.localPosition.z, m_runner.InvPositionPrecision));
             }
 
             if (m_runner.RotationPrecision == 0f)
             {
-                obj.PutFloat("q0", t.rotation.x);
-                obj.PutFloat("q1", t.rotation.y);
-                obj.PutFloat("q2", t.rotation.z);
-                obj.PutFloat("q3", t.rotation.w);
+                obj.PutFloat(sfVars.Q0, t.rotation.x);
+                obj.PutFloat(sfVars.Q1, t.rotation.y);
+                obj.PutFloat(sfVars.Q2, t.rotation.z);
+                obj.PutFloat(sfVars.Q3, t.rotation.w);
             }
             else
             {
-                int[] qInt = QuantizeQuaternion(t.rotation);
-                obj.PutInt("q0", qInt[0]);
-                obj.PutInt("q1", qInt[1]);
-                obj.PutInt("q2", qInt[2]);
-                obj.PutByte("q3", (byte)qInt[3]);
+                int[] qInt = EncodeQuaternion(t.rotation);
+                obj.PutInt(sfVars.Q0, qInt[0]);
+                obj.PutInt(sfVars.Q1, qInt[1]);
+                obj.PutInt(sfVars.Q2, qInt[2]);
+                obj.PutByte(sfVars.Q3, (byte)qInt[3]);
             }
 
             return obj;
@@ -152,7 +164,7 @@ namespace KS.Benchmark.SmartFox2X
             return (int)Mathf.Floor(workValue);
         }
 
-        private int[] QuantizeQuaternion(Quaternion q)
+        private int[] EncodeQuaternion(Quaternion q)
         {
             int[] qInt = new int[4];
             int maxValue = (int)Math.Pow(2, Math.Ceiling(Math.Log(1.0f / m_runner.RotationPrecision, 2)));

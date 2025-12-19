@@ -12,15 +12,16 @@ using static Unity.Collections.Unicode;
 
 namespace KS.Benchmark.SmartFox2X
 {
+    /// <summary>
+    /// Has methods to connect to SFS as a client or as a server, and handles logging in and starting/joining the room.
+    /// Provides access to the <see cref="SmartFox"/> instance.
+    /// </summary>
     public class sfRunner : MonoBehaviour
     {
         public event Action OnRoomConnect;
         public event Action OnRoomDisconnect;
 
         public GameObject[] Prefabs;
-        public ksScriptAssetReference<BaseBenchmarkData> Benchmark;
-
-        public float SendRate = 30f;
 
         public string Host = "localhost";
         public ushort ClientPort = 9933;
@@ -110,15 +111,6 @@ namespace KS.Benchmark.SmartFox2X
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                ConnectAsServer();
-            }
-            else if (Input.GetKeyDown(KeyCode.C))
-            {
-                ConnectAsClient();
-            }
-
             m_smartFox.ProcessEvents();
         }
 
@@ -149,7 +141,8 @@ namespace KS.Benchmark.SmartFox2X
                 ksLog.Error("Connection error.");
                 return;
             }
-            m_smartFox.Send(new LoginRequest(IsServer ? "server" : "client", null, "BasicExamples"));
+            // Append a guid to the client name because the name must be unique.
+            m_smartFox.Send(new LoginRequest(IsServer ? "server" : ("client" + Guid.NewGuid()), null, "BasicExamples"));
         }
 
         private void HandleDisconnect(BaseEvent ev)
