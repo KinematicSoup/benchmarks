@@ -2,11 +2,13 @@
 
 This repository is intended to contain testing and benchmarks for KinematicSoup's Reactor Multiplayer Engine project.
 
-See the https://github.com/KinematicSoup/benchmarks subfolder for benchmark specific readme and any additional licensing.
+See the [https://github.com/KinematicSoup/benchmarks/UnityNetworkTransformBenchmark](https://github.com/KinematicSoup/benchmarks/tree/main/UnityNetworkTransformBenchmark) subfolder for benchmark specific readme and any additional licensing.
 
 A live build can be accessed here that uses WSS https://demo.kinematicsoup.com/benchmark-asteroids/index.html
 
 KinematicSoup is the creator of the Reactor Multiplayer Engine and Scene Fusion.
+
+Talk to us on discord: https://discord.gg/vWeTvPB
 
 Learn more at https://www.kinematicsoup.com
 
