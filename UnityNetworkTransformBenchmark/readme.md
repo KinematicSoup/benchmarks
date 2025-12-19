@@ -175,7 +175,7 @@ the data that never changes (prefab, scale), and one containing the updating dat
 character to minimize bandwidth. We assign the synced game objects an incrementing integer id that starts at 1. The room variable names are a
 single character ('s' for immutable spawn data, 'u' for updating data) prefixed to the game object's integer id.
 
-Position and scale data is quantized to integers with .01 accuracy, and rotations are quantized with .001 accuracy and use smallest-3 encoding.
+Position and scale data are quantized to integers with .01 accuracy, and rotations are quantized with .001 accuracy and use smallest-3 encoding.
 
 - Server Version: 2.19.0
 - C# API Version: 1.8.5
