@@ -1,7 +1,4 @@
-using System;
 using UnityEngine;
-using Sfs2X.Entities.Data;
-using KS.Reactor;
 
 namespace KS.Benchmark.SmartFox2X
 {

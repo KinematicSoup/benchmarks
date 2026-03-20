@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+#if !UNITY_WEBGL || UNITY_EDITOR
 using Sfs2X.Entities.Data;
 using Sfs2X.Entities.Variables;
 using Sfs2X.Requests;
+#endif
 using KS.Reactor;
 using KS.Reactor.Client.Unity;
 using KS.Benchmark.Reactor;
@@ -20,6 +22,7 @@ namespace KS.Benchmark.SmartFox2X
     /// </summary>
     public class sfObjectSendManager : MonoBehaviour
     {
+#if !UNITY_WEBGL || UNITY_EDITOR
         public ksScriptAssetReference<BaseBenchmarkData> Benchmark;
         public float SendRate = 30f;
 
@@ -198,7 +201,6 @@ namespace KS.Benchmark.SmartFox2X
 
             return qInt;
         }
-
-
+#endif
     }
 }

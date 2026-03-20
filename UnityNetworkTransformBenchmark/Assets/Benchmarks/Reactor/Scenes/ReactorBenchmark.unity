@@ -3354,7 +3354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConnectOnStart: 1
-  ConnectProtocol: 2
+  ConnectProtocol: 0
   ConnectMode: 2
   RemoteHost: localhost
   RemotePort: 8000

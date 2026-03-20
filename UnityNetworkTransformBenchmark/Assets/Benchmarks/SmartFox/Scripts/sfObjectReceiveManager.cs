@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+#if !UNITY_WEBGL || UNITY_EDITOR
 using Sfs2X.Entities.Data;
 using Sfs2X.Entities.Variables;
 using Sfs2X.Core;
+#endif
 
 namespace KS.Benchmark.SmartFox2X
 {
@@ -13,6 +15,7 @@ namespace KS.Benchmark.SmartFox2X
     /// </summary>
     public class sfObjectReceiveManager : MonoBehaviour
     {
+#if !UNITY_WEBGL || UNITY_EDITOR
         private sfRunner m_runner;
         private Dictionary<int, sfNetId> m_objects = new Dictionary<int, sfNetId>();
 
@@ -175,5 +178,6 @@ namespace KS.Benchmark.SmartFox2X
             q.Normalize();
             return q;
         }
+#endif
     }
 }

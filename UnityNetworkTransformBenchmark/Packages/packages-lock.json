@@ -1,11 +1,11 @@
 {
   "dependencies": {
     "com.kinematicsoup.reactor": {
-      "version": "https://github.com/KinematicSoup/Releases.git?path=/Reactor/1.1.0",
+      "version": "https://github.com/KinematicSoup/Releases.git?path=/Reactor/1.1.1",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "b966c82300666df1162f93bae41640f93b7b7cfb"
+      "hash": "3c88cf8d78a7c7d15a58dbd6b63eafa035b3f59d"
     },
     "com.unity.burst": {
       "version": "1.8.23",

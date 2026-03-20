@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Benchmarks/Mirror/Scenes/MirrorBenchmark.unity
     guid: 55b881d7795da5749b743cd141977ed4
-  - enabled: 0
+  - enabled: 1
     path: Assets/Benchmarks/Reactor/Scenes/ReactorBenchmark.unity
     guid: 624ae69342a0c664991813b964af054c
   - enabled: 0
@@ -23,8 +23,8 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Benchmarks/PurrNet/Scenes/PurrNetBenchmark.unity
     guid: c62419397d972ff40875e95e9dec63be
-  - enabled: 1
+  - enabled: 0
     path: Assets/Benchmarks/SmartFox/Scenes/SmartFoxBenchmark.unity
-    guid: 39a1de6efa5e29c49ad74b23f5551464
+    guid: d18a0c6178ebd1a41ae31ddedf53fc78
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

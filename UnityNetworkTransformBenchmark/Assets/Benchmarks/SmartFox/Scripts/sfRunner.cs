@@ -1,14 +1,13 @@
 using System;
 using UnityEngine;
+#if !UNITY_WEBGL || UNITY_EDITOR
 using Sfs2X;
 using Sfs2X.Core;
 using Sfs2X.Requests;
 using Sfs2X.Entities;
 using Sfs2X.Util;
+#endif
 using KS.Reactor;
-using KS.Reactor.Client.Unity;
-using KS.Benchmark.Reactor;
-using static Unity.Collections.Unicode;
 
 namespace KS.Benchmark.SmartFox2X
 {
@@ -18,6 +17,7 @@ namespace KS.Benchmark.SmartFox2X
     /// </summary>
     public class sfRunner : MonoBehaviour
     {
+#if !UNITY_WEBGL || UNITY_EDITOR
         public event Action OnRoomConnect;
         public event Action OnRoomDisconnect;
 
@@ -221,5 +221,6 @@ namespace KS.Benchmark.SmartFox2X
         {
             ksLog.Info(this, "Room added");
         }
+#endif
     }
 }

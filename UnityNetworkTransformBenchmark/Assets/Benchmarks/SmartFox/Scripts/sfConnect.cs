@@ -6,6 +6,7 @@ namespace KS.Benchmark.SmartFox2X
     /// <summary>Connects to SFS as a server or a client when a button is pressed.</summary>
     public class sfConnect : MonoBehaviour
     {
+#if !UNITY_WEBGL || UNITY_EDITOR
         public Button ServerButton;
         public Button ClientButton;
 
@@ -30,5 +31,6 @@ namespace KS.Benchmark.SmartFox2X
                 ClientButton.gameObject.SetActive(!m_runner.IsRoomConnected);
             }
         }
+#endif
     }
 }
